@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        {{ current_id }}
+        {{ cards_info[current_id] }}
     </div>    
 </template>
 
