@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Card card="Une carte" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Card from './components/Card'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Card
   }
 }
 </script>
@@ -19,8 +19,11 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 25% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
 }
 </style>
