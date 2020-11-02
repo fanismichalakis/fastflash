@@ -17,8 +17,8 @@ export default {
 .card {
   padding: 5px;
   margin: 5px;
-  width: 33%;
-  height: 33%;
+  width: 12em;
+  height: 12em;
   border-radius: 10px;
   color: #2c3e50;
   border-style: solid;
