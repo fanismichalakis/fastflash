@@ -1,0 +1,9 @@
+{
+  "name": "fastflash",
+  "version": "1.0.0",
+  "description": "flash card learning",
+  "main": "index.js",
+  "repository": "git@github.com:fanismichalakis/fastflash.git",
+  "author": "Adèle Bougeix, Fanis Michalakis, Maxime Vivier",
+  "license": "MIT"
+}
