@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import DisplayCard from './components/CardDisplay'
 
 export default {
