@@ -1,15 +1,32 @@
 <template>
-    <div class="card">
-        {{ cards_info[current_id] }}
+    <div class="card" v-on:click="revealOrNext">
+      <p>{{ cards_info[cards_id[current_index]].recto }}</p>
+      <p v-if="answer_revealed">{{ cards_info[cards_id[current_index]].verso }}</p>
     </div>    
 </template>
 
 <script>
 export default {
   name: 'SingleCard',
+  methods: {
+    revealOrNext: function () {
+      if (this.answer_revealed) {
+        this.$emit('next-card', this.current_index);
+        this.answer_revealed = false;
+      } else {
+        this.answer_revealed = true;
+      }
+    }
+  },
   props: {
-      current_id: String,
-      cards_info: Object
+    current_index: Number,
+    cards_id: Array,
+    cards_info: Object
+  },
+  data () {
+    return {
+      answer_revealed: false,
+    }
   }
 }
 </script>
