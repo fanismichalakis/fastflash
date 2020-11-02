@@ -40,7 +40,7 @@ const RootQuery = new GraphQLObjectType({
             type: CardType,
             args: { id: { type: GraphQLInt } },
             resolve(parent, args){
-                return Card.find({ id: args.id}).exec();
+                return Card.findOne({ id: args.id});
             }
         },
 }}
