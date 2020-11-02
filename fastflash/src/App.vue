@@ -1,6 +1,5 @@
 <template>
   <div>
-    <img alt="Vue logo" src="./assets/logo.png">
     <DisplayCard />
   </div>
 </template>
@@ -22,10 +21,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin: 60px 25% 0;
+  margin: 5%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   font-size: 1.5em;
 }
 </style>

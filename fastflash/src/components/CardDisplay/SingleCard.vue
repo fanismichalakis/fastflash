@@ -27,5 +27,6 @@ export default {
 
 .card:hover {
   background-color: rgb(44, 62, 80, 0.1);
+  transform: rotate3d(-1, 2, 0, 20deg);
 }
 </style>
