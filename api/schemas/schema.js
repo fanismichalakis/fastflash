@@ -12,6 +12,7 @@ const {
 
 } = graphql;
 
+
 const CardType = new GraphQLObjectType({
     name: 'Card',
     fields: ( ) => ({
@@ -33,6 +34,13 @@ const RootQuery = new GraphQLObjectType({
             type: new GraphQLList(CardType),
             resolve(parent, args){
                 return Card.find({});
+            }
+        },
+        card: {
+            type: CardType,
+            args: { id: { type: GraphQLInt } },
+            resolve(parent, args){
+                return Card.find({ id: args.id}).exec();
             }
         },
 }}
