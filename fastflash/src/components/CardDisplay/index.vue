@@ -1,5 +1,10 @@
 <template>
-    <SingleCard v-bind:current_id="current_id" v-bind:cards_info="cards_info" />    
+    <SingleCard
+      v-bind:cards_id="cards_id"
+      v-bind:cards_info="cards_info"
+      v-bind:current_index="current_index"
+      v-on:next-card="nextCard"
+    />    
 </template>
 
 <script>
@@ -10,9 +15,19 @@ export default {
   components: {
     SingleCard,
   },
+  methods: {
+    nextCard () {
+      if (this.current_index < this.cards_id.length - 1) {
+        this.current_index ++;
+        console.log(this.current_index);
+      } else {
+        this.current_index = 0;
+      }
+    }
+  },
   data() {
     return {
-      current_id: '1000',
+      current_index: 0,
       cards_id: ['1000', '1001', '1002', '1003'],
       cards_info: {
         '1000': {
