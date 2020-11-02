@@ -1,58 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Card card="Une carte" />
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <DisplayCard />
+  </div>
 </template>
 
 <script>
-import Card from './components/Card'
+import DisplayCard from './components/CardDisplay'
 
 export default {
   name: 'App',
   components: {
-    Card
-  },
-  data() {
-    return {
-      cards_id: [1000, 1001, 1002, 1003],
-      cards_info: {
-        1000: {
-          recto:'manger',
-          verso:'eat',
-          recto_def:'français',
-          verso_def:'anglais',
-          position:1,
-          library:'franglais',
-          id:1000
-        },
-        1001: {
-          recto:'bouger',
-          verso:'move',
-          recto_def:'français',
-          verso_def:'anglais',
-          position:1,
-          library:'franglais',
-          id:1001
-        },
-        1002: {
-          recto:'chien',
-          verso:'dog',
-          recto_def:'français',
-          verso_def:'anglais',
-          position:1,
-          library:'franglais',
-          id:1002
-        },
-        1003: {
-          recto:'jaune',
-          verso:'yellow',
-          recto_def:'français',
-          verso_def:'anglais',
-          position:1,
-          library:'franglais',
-          id:1003
-        }
-      },
-    };
+    DisplayCard,
   },
 }
 </script>

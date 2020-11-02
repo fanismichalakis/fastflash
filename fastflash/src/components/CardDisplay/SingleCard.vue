@@ -1,15 +1,16 @@
 <template>
     <div class="card">
-        {{ card }}
+        {{ cards_info[current_id] }}
     </div>    
 </template>
 
 <script>
 export default {
-    name: 'Card',
-    props: {
-        card: String
-    }
+  name: 'SingleCard',
+  props: {
+      current_id: String,
+      cards_info: Object
+  }
 }
 </script>
 
