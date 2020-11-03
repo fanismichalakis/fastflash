@@ -1,17 +1,17 @@
 <template>
   <div>
-    <DisplayCard />
+    <CardDisplay />
   </div>
 </template>
 
 <script>
 
-import DisplayCard from './components/CardDisplay'
+import CardDisplay from './components/CardDisplay'
 
 export default {
   name: 'App',
   components: {
-    DisplayCard,
+    CardDisplay,
   },
 }
 </script>
