@@ -6,6 +6,10 @@
   "repository": "git@github.com:fanismichalakis/fastflash.git",
   "author": "Adèle Bougeix, Fanis Michalakis, Maxime Vivier",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon api/app.js",
+    "start": "cd fastflash; yarn serve;"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
