@@ -1,7 +1,7 @@
 <template>
     <div class="card" v-on:click="revealOrNext">
-      <p>{{ cards_info[cards_id[current_index]].recto }}</p>
-      <p v-if="answer_revealed">{{ cards_info[cards_id[current_index]].verso }}</p>
+      <p><strong>{{ cards_info[cards_id[current_index]].recto }}</strong></p>
+      <p v-if="answer_revealed"><em>{{ cards_info[cards_id[current_index]].verso }}</em></p>
     </div>    
 </template>
 
