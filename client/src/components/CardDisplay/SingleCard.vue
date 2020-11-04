@@ -1,11 +1,14 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
+      <p>{{ cards }}</p>
       <p><strong>{{ cards_info[cards_id[current_index]].recto }}</strong></p>
       <p v-if="answer_revealed"><em>{{ cards_info[cards_id[current_index]].verso }}</em></p>
     </div>    
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'SingleCard',
   methods: {
@@ -18,6 +21,14 @@ export default {
       }
     }
   },
+  apollo: {
+    // Simple query that will update the 'hello' vue property
+    cards: gql`{
+      cards {
+        id
+      }
+    }`,
+  },
   props: {
     current_index: Number,
     cards_id: Array,
@@ -26,6 +37,7 @@ export default {
   data () {
     return {
       answer_revealed: false,
+      cards: [],
     }
   }
 }
