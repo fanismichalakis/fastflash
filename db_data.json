@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "library": "french/english",
+    "recto_def": "french",
+    "verso_def": "english",
+    "recto": "dog",
+    "verso": "chien",
+    "position": true
+  },
+  {
+    "id": 3,
+    "library": "french/english",
+    "recto_def": "french",
+    "verso_def": "english",
+    "recto": "cat",
+    "verso": "chat",
+    "position": true
+  },
+  {
+    "id": 2,
+    "library": "french/english",
+    "recto_def": "french",
+    "verso_def": "english",
+    "recto": "bird",
+    "verso": "oiseau",
+    "position": true
+  },
+  {
+    "id": 4,
+    "library": "french/english",
+    "recto_def": "french",
+    "verso_def": "english",
+    "recto": "eat",
+    "verso": "manger",
+    "position": true
+  },
+  {
+    "id": 5,
+    "library": "french/english",
+    "recto_def": "french",
+    "verso_def": "english",
+    "recto": "go",
+    "verso": "aller",
+    "position": true
+  },
+  {
+    "id": 6,
+    "library": "frances/espanol",
+    "recto_def": "frances",
+    "verso_def": "espanol",
+    "recto": "perro",
+    "verso": "chien",
+    "position": true
+  },
+  {
+    "id": 7,
+    "library": "frances/espanol",
+    "recto_def": "frances",
+    "verso_def": "espanol",
+    "recto": "gato",
+    "verso": "chat",
+    "position": true
+  },
+  {
+    "id": 8,
+    "library": "frances/espanol",
+    "recto_def": "frances",
+    "verso_def": "espanol",
+    "recto": "pajaro",
+    "verso": "oiseau",
+    "position": true
+  },
+  {
+    "id": 9,
+    "library": "frances/espanol",
+    "recto_def": "frances",
+    "verso_def": "espanol",
+    "recto": "iro",
+    "verso": "aller",
+    "position": true
+  }
+]

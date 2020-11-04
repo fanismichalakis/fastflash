@@ -12,7 +12,8 @@
     "test": "jest",
     "api-test": "jest --testRegex='api-test.js'",
     "firefox-test": "jest --testRegex='firefox'",
-    "chrome-test": "jest --testRegex='chrome'"
+    "chrome-test": "jest --testRegex='chrome'",
+    "init-db": "node db_init.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
