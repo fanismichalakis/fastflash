@@ -1,9 +1,8 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
-      {{card.position}}
-      <p class="recto"><strong>{{ card.position? card.recto : card.verso}}</strong></p>
+      <p class="recto" v-if="!end_of_the_library"><strong>{{ card.position? card.recto : card.verso}}</strong></p>
       <p class="verso" v-if="answer_revealed"><em>{{ card.position? card.verso : card.recto}}</em></p>
-      <h2 v-if="answer_revealed && end_of_the_library">This is the end of the library, if you want to practice in the other way around please refresh the page.</h2>
+      <p class="verso warning" v-if="end_of_the_library"> &#x1F44F; This is the end of the library, if you want to practice in the other way around please refresh the page. &#x1F44F; </p>
     </div>
 </template>
 
@@ -37,11 +36,7 @@ export default {
             //console.log(this.card.id)
             this.answer_revealed = true;
           }
-        } else {
-          if (!this.answer_revealed) {
-            this.answer_revealed = true;
-          }
-        }
+        } 
         console.log(this.card)
     }
   },
@@ -105,6 +100,12 @@ export default {
 }
 .verso{
   font-family: 'Lato', sans-serif;
+
+}
+
+.warning{
+  margin-top: 25%;
+  font-size: 22px;
 }
 
 .card:hover {

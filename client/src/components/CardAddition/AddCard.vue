@@ -5,7 +5,6 @@
       <div class="new-card-button" id="new-card-button" v-on:click="addNewCard">
         <p>+</p>
       </div>
-    <p>{{ this.cards_id }}</p>
     </div>
 </template>
 
@@ -18,13 +17,14 @@ export default {
 
 
       async addNewCard() {
+
         console.log(this.cardEnglish)
         console.log(this.cardFrench)
-        const IDS = this.cards_id.map(e => e.id)
-        console.log(IDS)
-        const idMax = Math.max.apply(null, IDS)
-        console.log(idMax)
-
+        console.log(this.max)
+        if(this.max==0){
+          this.max=Math.max.apply(null, this.cards_id.map(e => e.id))
+        }
+        console.log(this.max);
         
         const result =  await this.$apollo.mutate({
           mutation: gql`mutation ($id: Int!, $library: String!, $recto_def: String!, $verso_def: String!, $recto: String!, $verso: String!, $position: Boolean! ) {
@@ -43,7 +43,7 @@ export default {
                         }`,
           variables: {
             position: true,
-            id:idMax + 1,
+            id:this.max+1,
             recto_def:"english",
             verso_def:"french",
             recto:this.cardEnglish,
@@ -53,6 +53,7 @@ export default {
         });
 
         console.log(result)
+        this.max=this.max+1;
       }
     },
     apollo: {
@@ -66,10 +67,12 @@ export default {
     },
   },
     data() {
+
       return {
         cards_id: [],
         cardEnglish: "",
-        cardFrench: ""
+        cardFrench: "",
+        max: 0,
       }
     }
 }
