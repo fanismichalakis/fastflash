@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "cd fastflash; yarn serve;",
+    "start": "cd client; yarn serve;",
     "test": "jest",
     "api-test": "jest --testRegex='api-test.js'"
   },
