@@ -6,16 +6,22 @@
 
 <script>
 import AddCard from './AddCard'
+import gql from 'graphql-tag';
 
 export default {
   name: 'CardAddition',
   components: {
     AddCard,
   },
-  methods: {
-    addCard() {
-      console.log("adding new card")
-    }
+  apollo: {
+    cards_id: {
+      query: gql`{
+        cards {
+          id
+        }
+      }`,
+      update: data => data.cards
+    },
   }
 }
 </script>
@@ -24,6 +30,7 @@ export default {
 
 .add-card {
   display: block;
-  padding-left: 90%;
+  align-content: center;
+  margin: auto;
 }
 </style>
