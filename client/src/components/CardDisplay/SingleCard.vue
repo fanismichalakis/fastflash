@@ -36,7 +36,7 @@ export default {
             //console.log(this.card.id)
             this.answer_revealed = true;
           }
-        } 
+        }
         console.log(this.card)
     }
   },

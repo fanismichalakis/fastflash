@@ -2,8 +2,8 @@
     <div class="add-card">
       <input v-model="cardEnglish" class="new-card-field" placeholder="A word in english" />
       <input v-model="cardFrench" class="new-card-field" placeholder="A word in french" />
-      <div class="new-card-button" id="new-card-button" v-on:click="addNewCard">
-        <p>+</p>
+      <div  id="new-card-button" v-on:click="addNewCard">
+        <button class="new-card-button">Add a new card</button>
       </div>
     </div>
 </template>
@@ -80,10 +80,11 @@ export default {
 
 <style scoped>
 .add-card {
+
   display: block;
   font-size: 30px;
-  margin: auto;
-  width: 3em;
+
+  width: 10em;
   border-radius: 10px;
   color: #2c3e50;
   cursor: pointer;
@@ -94,18 +95,32 @@ export default {
 }
 
 .new-card-field {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
   border-radius: 5px;
   border: solid;
   border-color: azure;
 }
 
-.new-card-button {
-  margin: auto;
-  width: 3em;
-}  
 
-.new-card-button:hover {
-  font-weight: bolder
+
+.new-card-button{
+  margin-top: 10%;
+  margin-left: 2%;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 20px 20px;
+  font-family: 'Lato', sans-serif;
+  background: white;
+  border: 3px solid black;
+  font-size: 25px;
+
+}
+
+.new-card-button:hover{
+  background: rgb(44, 62, 80, 0.1);
 }
 
 </style>
