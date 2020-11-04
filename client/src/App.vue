@@ -1,33 +1,21 @@
 <template>
-  <div>
-    <CardDisplay />
-    <button @click="help">Force Update</button>
-  </div>
+<div>
+<p>
+  <router-link to="/add-card">Add a card</router-link>
+  <router-link to="/">See the library</router-link>
+</p>
+<div>
+  <router-view></router-view>
+</div>
+</div>
 </template>
 
 <script>
-
-import CardDisplay from './components/CardDisplay'
-
 export default {
   name: 'App',
   metaInfo: {
-      title: 'FastFlash',
-      titleTemplate: null
-    },
-  components: {
-    CardDisplay,
-  },
-  data(){
-    return {
-      renderComponent: true,
-    };
-  },
-  methods: {
-    help(){
-      this.$mount();
-    },
-
+    title: 'FastFlash',
+    titleTemplate: null
   }
 }
 </script>
