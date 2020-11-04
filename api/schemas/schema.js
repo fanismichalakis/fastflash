@@ -78,6 +78,16 @@ const Mutation = new GraphQLObjectType({
             resolve(parent, args){
                 return Card.remove({});
             }
+        },
+        flipCard: {
+            type: CardType,
+            args: {
+                id: { type: new GraphQLNonNull(GraphQLInt) },
+                position: { type: new GraphQLNonNull(GraphQLBoolean) }
+            },
+            resolve(parent, args) {
+                return Card.where({ id: args.id }).update({ position: !args.position });
+            }
         }
     }
 });
