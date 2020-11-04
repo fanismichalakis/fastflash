@@ -20,4 +20,12 @@ describe('fastflash renders', () => {
         expect(title).toBe('fastflash')
     }, 20000)
 
+    test('first card is here', async () => {
+        await browser.get(url)
+        const card = await browser.findElement(By.css('card'))
+        const cardText = card.getText()
+        console.log(cardText)
+        expect(card).toBe('manger')
+    })
+
 })
