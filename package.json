@@ -10,7 +10,9 @@
     "dev": "nodemon index.js",
     "start": "cd client; yarn serve;",
     "test": "jest",
-    "api-test": "jest --testRegex='api-test.js'"
+    "api-test": "jest --testRegex='api-test.js'",
+    "firefox-test": "jest --testRegex='firefox'",
+    "chrome-test": "jest --testRegex='chrome'"
   },
   "dependencies": {
     "cors": "^2.8.5",
