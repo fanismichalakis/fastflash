@@ -3,8 +3,8 @@
       {{card.position}}
       <p class="recto"><strong>{{ card.position? card.recto : card.verso}}</strong></p>
       <p class="verso" v-if="answer_revealed"><em>{{ card.position? card.verso : card.recto}}</em></p>
-
-    </div>    
+      <h2 v-if="answer_revealed && end_of_the_library">This is the end of the library, if you want to practice in the other way around please refresh the page.</h2>
+    </div>
 </template>
 
 <script>
@@ -14,28 +14,34 @@ export default {
   name: 'SingleCard',
   methods: {
       async revealOrNext() {
-      if (this.answer_revealed) {
-        this.$emit('next-card', this.current_index);
-        this.answer_revealed = false;
-      } else {
-        const result =  await this.$apollo.mutate({
-          mutation: gql`mutation ($id: Int!, $position: Boolean! ) {
-                          flipCard(id: $id, position: $position ) {
-                            id
-                            position
-                          }
-                        }`,
-          variables: {
-            position: this.card.position,
-            id:this.card.id,
-          },
-        });
+        if (!this.end_of_the_library) {
+          if (this.answer_revealed) {
+            this.$emit('next-card', this.current_index);
+            this.answer_revealed = false;
+          } else {
+            const result =  await this.$apollo.mutate({
+              mutation: gql`mutation ($id: Int!, $position: Boolean! ) {
+                              flipCard(id: $id, position: $position ) {
+                                id
+                                position
+                              }
+                            }`,
+              variables: {
+                position: this.card.position,
+                id:this.card.id,
+              },
+            });
 
-        console.log(result)
-        //console.log(this.card.position)
-        //console.log(this.card.id)
-        this.answer_revealed = true;
-      }
+            console.log(result)
+            //console.log(this.card.position)
+            //console.log(this.card.id)
+            this.answer_revealed = true;
+          }
+        } else {
+          if (!this.answer_revealed) {
+            this.answer_revealed = true;
+          }
+        }
         console.log(this.card)
     }
   },
@@ -65,6 +71,7 @@ export default {
       },
   }},
   props: {
+    end_of_the_library: Boolean,
     current_index: Number,
     cards_id: Array,
   },

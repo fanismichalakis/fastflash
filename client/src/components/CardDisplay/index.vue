@@ -3,6 +3,7 @@
     v-if="cards_id.length!=0"
     v-bind:cards_id="cards_id.map(e => e.id)"
     v-bind:current_index="current_index"
+    v-bind:end_of_the_library="end_of_the_library"
     v-on:next-card="nextCard"
   />
 </template>
@@ -18,12 +19,10 @@ export default {
   },
   methods: {
     nextCard () {
-
       if (this.current_index < this.cards_id.length - 1) {
         this.current_index ++;
-        console.log(this.current_index);
       } else {
-        this.current_index = 0;
+        this.end_of_the_library = true;
       }
     }
   },
@@ -39,7 +38,7 @@ export default {
   },
   data() {
     return {
-
+      end_of_the_library: false,
       current_index: 0,
       cards_id: []
     };
