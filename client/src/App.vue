@@ -1,6 +1,7 @@
 <template>
   <div>
     <CardDisplay />
+    <button @click="help">Force Update</button>
   </div>
 </template>
 
@@ -16,6 +17,17 @@ export default {
     },
   components: {
     CardDisplay,
+  },
+  data(){
+    return {
+      renderComponent: true,
+    };
+  },
+  methods: {
+    help(){
+      this.$mount();
+    },
+
   }
 }
 </script>

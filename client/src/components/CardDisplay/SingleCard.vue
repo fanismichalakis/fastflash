@@ -1,5 +1,6 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
+      {{card.position}}
       <p class="recto"><strong>{{ card.position? card.recto : card.verso}}</strong></p>
       <p class="verso" v-if="answer_revealed"><em>{{ card.position? card.verso : card.recto}}</em></p>
 
@@ -12,13 +13,30 @@ import gql from 'graphql-tag';
 export default {
   name: 'SingleCard',
   methods: {
-    revealOrNext: function () {
+      async revealOrNext() {
       if (this.answer_revealed) {
         this.$emit('next-card', this.current_index);
         this.answer_revealed = false;
       } else {
+        const result =  await this.$apollo.mutate({
+          mutation: gql`mutation ($id: Int!, $position: Boolean! ) {
+                          flipCard(id: $id, position: $position ) {
+                            id
+                            position
+                          }
+                        }`,
+          variables: {
+            position: this.card.position,
+            id:this.card.id,
+          },
+        });
+
+        console.log(result)
+        //console.log(this.card.position)
+        //console.log(this.card.id)
         this.answer_revealed = true;
       }
+        console.log(this.card)
     }
   },
   apollo: {
@@ -32,6 +50,7 @@ export default {
       // gql query
       query: gql`query card($id: Int!) {
                   card(id: $id){
+                    id
                     recto
                     verso
                     position
@@ -50,13 +69,14 @@ export default {
     cards_id: Array,
   },
   data () {
-    console.log(this.cards_id);
-    console.log(this.current_index);
+
     return {
+
       answer_revealed: false,
       cards: [],
       card: {},
     }
+
   }
 }
 

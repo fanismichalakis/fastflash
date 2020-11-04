@@ -39,6 +39,7 @@ export default {
   },
   data() {
     return {
+
       current_index: 0,
       cards_id: []
     };
