@@ -1,8 +1,9 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
 
-      <p class="recto"><strong>{{ cards_info[cards_id[current_index]].recto }}</strong></p>
-      <p class="verso" v-if="answer_revealed">{{ cards_info[cards_id[current_index]].verso }}</p>
+      <p>{{cards_id}}</p>
+      <p class="recto"><strong>{{ card.recto }}</strong></p>
+      <p class="verso" v-if="answer_revealed"><em>{{card.verso }}</em></p>
 
     </div>    
 </template>
@@ -29,19 +30,34 @@ export default {
         id
       }
     }`,
-  },
+    card:{
+      // gql query
+      query: gql`query card($id: Int!) {
+                  card(id: $id){
+                    recto
+                    verso
+                  }
+    }`,
+      // Static parameters
+      variables: {
+        id: 1,
+      },
+  }},
   props: {
     current_index: Number,
     cards_id: Array,
     cards_info: Object
   },
   data () {
+    console.log(this.cards_id);
     return {
       answer_revealed: false,
       cards: [],
+      card: {},
     }
   }
 }
+
 </script>
 
 <style scoped>

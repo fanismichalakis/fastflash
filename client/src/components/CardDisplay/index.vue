@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       current_index: 0,
-      cards_id: ['1000', '1001', '1002', '1003'],
+      cards_id: ['1', '1001', '1002', '1003'],
       cards_info: {
         '1000': {
           recto:'manger',
