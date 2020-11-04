@@ -1,7 +1,9 @@
 <template>
     <div class="card" v-on:click="revealOrNext">
-      <p>{{ cards_info[cards_id[current_index]].recto }}</p>
+      <p>{{ cards }}</p>
+      <!--<p>{{ cards_info[cards_id[current_index]].recto }}</p>
       <p v-if="answer_revealed">{{ cards_info[cards_id[current_index]].verso }}</p>
+      -->
     </div>    
 </template>
 
@@ -20,7 +22,7 @@ export default {
   },
   props: {
     current_index: Number,
-    cards_id: Array,
+    cards: Array,
     cards_info: Object
   },
   data () {

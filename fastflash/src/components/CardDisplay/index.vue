@@ -1,19 +1,30 @@
 <template>
-    <SingleCard
-      v-bind:cards_id="cards_id"
-      v-bind:cards_info="cards_info"
-      v-bind:current_index="current_index"
-      v-on:next-card="nextCard"
-    />    
+  <SingleCard
+    v-if="$apollo.loading"
+    v-bind:cards="cards"
+    v-bind:cards_info="cards_info"
+    v-bind:current_index="current_index"
+    v-on:next-card="nextCard"
+  />    
 </template>
 
 <script>
 import SingleCard from './SingleCard'
+import gql from 'graphql-tag'
 
 export default {
   name: 'DisplayCard',
   components: {
     SingleCard,
+  },
+  apollo: {
+    cards: gql`
+      {
+        cards{
+          id
+        }
+      }
+    `
   },
   methods: {
     nextCard () {
@@ -28,7 +39,7 @@ export default {
   data() {
     return {
       current_index: 0,
-      cards_id: ['1000', '1001', '1002', '1003'],
+      cards_id_fake: ['1000', '1001', '1002', '1003'],
       cards_info: {
         '1000': {
           recto:'manger',

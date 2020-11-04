@@ -1,32 +1,19 @@
 import { createApp } from "vue";
+import VueApollo from 'vue-apollo';
 import App from "./App.vue";
 
-createApp(App).mount('#app');
+import { ApolloClient } from 'apollo-client';
+import { createHttpLink } from 'apollo-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-// import Vue from "vue";
-// import App from "./App.vue";
+// Create the apollo client
+const apolloClient = new ApolloClient({
+  link: createHttpLink({ uri: 'http://localhost:4000/graphql' }),
+  cache: new InMemoryCache(),
+});
 
-// import ApolloClient from "apollo-client";
-// import { InMemoryCache } from "apollo-cache-inmemory";
-// import VueApollo from "vue-apollo";
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+});
 
-
-// Vue.use(VueApollo);
-
-
-// const client = new ApolloClient({
-//     link: 'http://localhost:4000/graphql',
-//     cache: new InMemoryCache({
-//         addTypename: true
-//     })
-// });
-
-// const apolloProvider = new VueApollo({
-//     defaultClient: client,
-// })
-
-// new Vue({
-//     apolloProvider,
-//     render: h => h(App)
-// }).$mount("#app");
-
+createApp(App, { apolloProvider }).mount('#app')
