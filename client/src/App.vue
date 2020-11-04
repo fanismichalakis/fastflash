@@ -1,5 +1,6 @@
 <template>
   <div>
+    <CardAddition />
     <CardDisplay />
   </div>
 </template>
@@ -7,6 +8,7 @@
 <script>
 
 import CardDisplay from './components/CardDisplay'
+import CardAddition from './components/CardAddition'
 
 export default {
   name: 'App',
@@ -16,6 +18,7 @@ export default {
     },
   components: {
     CardDisplay,
+    CardAddition
   }
 }
 </script>
