@@ -1,7 +1,7 @@
 <template>
   <SingleCard class="card"
-
-              v-bind:cards_id="cards_id.map(e => e.id)"
+    v-if="cards_id.length!=0"
+    v-bind:cards_id="cards_id.map(e => e.id)"
     v-bind:current_index="current_index"
     v-on:next-card="nextCard"
   />
