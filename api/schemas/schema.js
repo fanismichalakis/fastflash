@@ -71,6 +71,13 @@ const Mutation = new GraphQLObjectType({
                 });
                 return card.save();
             }
+        },
+        removeCards: {
+            type: CardType,
+            args: {},
+            resolve(parent, args){
+                return Card.remove({});
+            }
         }
     }
 });
