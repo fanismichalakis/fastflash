@@ -17,7 +17,7 @@ describe('fastflash renders', () => {
     test('it renders', async () => {
         await browser.get(url)
         const title = await browser.getTitle()
-        expect(title).toBe('fastflash')
+        expect(title).toBe('client')
     }, 20000)
 
     test('first card is here', async () => {

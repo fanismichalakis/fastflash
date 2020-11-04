@@ -1,7 +1,7 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
-      <p><strong>{{ cards_info[cards_id[current_index]].recto }}</strong></p>
-      <p v-if="answer_revealed"><em>{{ cards_info[cards_id[current_index]].verso }}</em></p>
+      <p class="recto"><strong>{{ cards_info[cards_id[current_index]].recto }}</strong></p>
+      <p class="verso" v-if="answer_revealed">{{ cards_info[cards_id[current_index]].verso }}</p>
     </div>    
 </template>
 
@@ -33,6 +33,7 @@ export default {
 
 <style scoped>
 .card {
+  font-size: 30px;
   padding: 1em;
   margin: 1em;
   width: 12em;
@@ -40,6 +41,12 @@ export default {
   border-radius: 10px;
   color: #2c3e50;
   border-style: solid;
+}
+.recto{
+  font-family: 'Alfa Slab One', cursive;
+}
+.verso{
+  font-family: 'Lato', sans-serif;
 }
 
 .card:hover {

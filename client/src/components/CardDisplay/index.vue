@@ -1,5 +1,5 @@
 <template>
-  <SingleCard
+  <SingleCard class="card"
     v-bind:cards_id="cards_id"
     v-bind:cards_info="cards_info"
     v-bind:current_index="current_index"
@@ -74,4 +74,10 @@ export default {
 
 <style scoped>
 
+.card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+}
 </style>
