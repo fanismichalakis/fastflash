@@ -4,7 +4,7 @@
     v-bind:cards_info="cards_info"
     v-bind:current_index="current_index"
     v-on:next-card="nextCard"
-  />    
+  />
 </template>
 
 <script>
@@ -17,6 +17,7 @@ export default {
   },
   methods: {
     nextCard () {
+
       if (this.current_index < this.cards_id.length - 1) {
         this.current_index ++;
         console.log(this.current_index);
@@ -67,6 +68,7 @@ export default {
           id:1003
         }
       },
+      cards: [],
     };
   },
 }

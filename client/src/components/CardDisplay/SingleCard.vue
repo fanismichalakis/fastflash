@@ -1,7 +1,5 @@
 <template>
     <div class="card" id="card-details" v-on:click="revealOrNext">
-
-      <p>{{cards_id}}</p>
       <p class="recto"><strong>{{ card.recto }}</strong></p>
       <p class="verso" v-if="answer_revealed"><em>{{card.verso }}</em></p>
 
@@ -39,14 +37,16 @@ export default {
                   }
     }`,
       // Static parameters
-      variables: {
-        id: 1,
+      variables () {
+        // Use vue reactive properties here
+        return {
+          id: Number(this.cards_id[this.current_index]),
+        }
       },
   }},
   props: {
     current_index: Number,
     cards_id: Array,
-    cards_info: Object
   },
   data () {
     console.log(this.cards_id);
@@ -54,6 +54,7 @@ export default {
       answer_revealed: false,
       cards: [],
       card: {},
+      current: 1,
     }
   }
 }
