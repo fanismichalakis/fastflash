@@ -48,4 +48,42 @@ describe('get /ping request', () => {
     done();
   });
 
+  test('graphql card', async (done) => {
+    const resp = await request.post('/graphql')
+      .send({
+        query: "{card(id:1) { id } }"
+      });
+
+      expect(resp.text).toBe("{\"data\":{\"card\":{\"id\":1}}}")
+
+      done();
+  });
+
+  test('graphql addCard', async (done) => {
+    const resp = await request.post('/graphql')
+      .send({
+        query: "mutation{addCard(id:10,library:\"french/english\",recto_def:\"english\",verso_def:\"french\",recto:\"ant\",verso:\"fourmi\",position:true) { id\nrecto\nverso } }"
+      });
+
+      expect(resp.text).toBe("{\"data\":{\"addCard\":{\"id\":10,\"recto\":\"ant\",\"verso\":\"fourmi\"}}}")
+
+      done();
+  });
+
+  test('graphql flipCard', async (done) => {
+    const resp = await request.post('/graphql')
+      .send({
+        query: "mutation{flipCard(id:1,position:true) {id} }"
+      });
+
+    const resp2 = await request.post('/graphql')
+      .send({
+        query: "{card(id:1) { id\nposition } }"
+      });
+
+      expect(resp2.text).toBe("{\"data\":{\"card\":{\"id\":1,\"position\":false}}}")
+
+      done();
+  });
+
 });
