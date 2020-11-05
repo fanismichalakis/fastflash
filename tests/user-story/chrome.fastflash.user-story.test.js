@@ -23,20 +23,24 @@ describe('fastflash renders', () => {
 
     test('card has been shown', async () => {
         await browser.get(url)
-
-        const recto= await browser.findElement(By.css('card')).getText();
-        await browser.findElement(findElement(By.css('card'))).click();
-        const verso= await browser.findElement(findElement(By.css('card'))).getText()
+        await new Promise(r => setTimeout(r, 3000));
+        const recto= await browser.findElement(By.id('card-details')).getText();
+        await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 3000));
+        const verso= await browser.findElement(By.id('card-details')).getText()
         const traduction=verso.split('\n')[1];
-        if(recto=="dog"){
-            //expect(traduction).toBe('chien');
-        }
-        else{
-            expect(traduction).toBe('dog');
-        }
-
-
-
-    })
+        expect(recto).toBe('dog');
+        expect(traduction).toBe('chien');
+    }, 30000)
+    test('card has been flipped', async () => {
+        await browser.get(url)
+        await new Promise(r => setTimeout(r, 2000));
+        await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 2000));
+        await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 2000));
+        const recto= await browser.findElement(By.id('card-details')).getText()
+        expect(recto).toBe('cat');
+    }, 30000)
 
 })
