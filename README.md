@@ -20,6 +20,8 @@ The application only offers the possibility to learn english for now.
 
 * Vue 2.6.11 
 * Node.js 14.0.0
+* GraphQL 
+* MongoDB
 
 
 ## Getting started 
@@ -57,6 +59,20 @@ yarn run firefox-test
 ```
 
 * Back-end tests: 
+Dans un premier terminal: 
+```
+cd client
+```
+```
+yarn serve
+```
+Dans un second terminal : 
+```
+yarn run init-db 
+```
+```
+yarn run api-test 
+```
 
 
 ## Author 
