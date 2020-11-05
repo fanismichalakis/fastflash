@@ -2,8 +2,8 @@
   {
     "id": 1,
     "library": "french/english",
-    "recto_def": "french",
-    "verso_def": "english",
+    "recto_def": "english",
+    "verso_def": "french",
     "recto": "dog",
     "verso": "chien",
     "position": true
@@ -11,8 +11,8 @@
   {
     "id": 3,
     "library": "french/english",
-    "recto_def": "french",
-    "verso_def": "english",
+    "recto_def": "english",
+    "verso_def": "french",
     "recto": "cat",
     "verso": "chat",
     "position": true
@@ -20,8 +20,8 @@
   {
     "id": 2,
     "library": "french/english",
-    "recto_def": "french",
-    "verso_def": "english",
+    "recto_def": "english",
+    "verso_def": "french",
     "recto": "bird",
     "verso": "oiseau",
     "position": true
@@ -29,8 +29,8 @@
   {
     "id": 4,
     "library": "french/english",
-    "recto_def": "french",
-    "verso_def": "english",
+    "recto_def": "english",
+    "verso_def": "french",
     "recto": "eat",
     "verso": "manger",
     "position": true
@@ -38,8 +38,8 @@
   {
     "id": 5,
     "library": "french/english",
-    "recto_def": "french",
-    "verso_def": "english",
+    "recto_def": "english",
+    "verso_def": "french",
     "recto": "go",
     "verso": "aller",
     "position": true

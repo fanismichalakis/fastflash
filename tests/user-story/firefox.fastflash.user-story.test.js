@@ -22,22 +22,47 @@ describe('fastflash renders', () => {
 
     test('first card is here', async () => {
         await browser.get(url)
-        const card= await browser.findElement(By.id('card-details')).getText();
-        console.log(card);
-        expect(card).toBe('manger');
-    }, 15000)
-    test('card has been shown', async () => {
+        await new Promise(r => setTimeout(r, 5000));
+        const card= await browser.findElement(By.id('card-details'))
+        const cardText = await card.getText();
+        expect(cardText).toBe('dog')
+    }, 25000)
+
+    test('card has been turned', async () => {
         await browser.get(url)
+        await new Promise(r => setTimeout(r, 5000));
         const recto= await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 5000));
         const verso= await browser.findElement(By.id('card-details')).getText()
         const traduction=verso.split('\n')[1];
-        expect(traduction).toBe('eat');
-    }, 15000)
-    test('card has been flipped', async () => {
+        expect(traduction).toBe('chien');
+    }, 25000)
+    test('card has been changed', async () => {
         await browser.get(url)
+        await new Promise(r => setTimeout(r, 5000));
         const recto= await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 5000));
         const verso= await browser.findElement(By.id('card-details')).click();
+        await new Promise(r => setTimeout(r, 5000));
         const new_card=await browser.findElement(By.id('card-details')).getText();
-        expect(new_card).toBe('bouger');
-    }, 15000)
+        expect(new_card).toBe('cat');
+    }, 25000)
+
+    /*test('card has been shown', async () => {
+        await browser.get(url)
+
+        const recto= await browser.findElement(By.css('card')).getText();
+        await browser.findElement(findElement(By.css('card'))).click();
+        const verso= await browser.findElement(findElement(By.css('card'))).getText()
+        const traduction=verso.split('\n')[1];
+        if(recto=="dog"){
+            //expect(traduction).toBe('chien');
+        }
+        else{
+            expect(traduction).toBe('dog');
+        }
+
+
+
+    })*/
 })
