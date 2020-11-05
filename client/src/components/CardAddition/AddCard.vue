@@ -52,6 +52,9 @@ export default {
           },
         });
 
+        this.cardEnglish = '';
+        this.cardFrench = '';
+
         console.log(result)
         this.max=this.max+1;
       }
